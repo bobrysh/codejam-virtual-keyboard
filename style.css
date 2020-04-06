@@ -1,0 +1,30 @@
+#area{
+    margin: auto;
+    display: flex;
+    width: 906px;
+    height: 227px;
+    font-size: 2em;
+}
+
+#inputArea{
+    display: flex;
+    margin: auto;
+    width: 900px;
+    height: 320px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#button{
+    width: 5%;
+    display: block;
+    height: 50px;
+    margin-right: 1%;
+    margin-left: 0%;
+    color: white;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 2px 5px 0px;
+    cursor: pointer;
+    text-align: center;
+    background-color: black;
+}
