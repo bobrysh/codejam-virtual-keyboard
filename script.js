@@ -1,47 +1,42 @@
 /* eslint-disable linebreak-style */
-const area = document.createElement('textarea');
-const inputArea = document.createElement('div');
-area.id = 'area';
-inputArea.id = 'inputArea';
-document.body.append(area, inputArea);
+const russianKeys = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
+  'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\',
+  'Caps Lock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter',
+  'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift',
+  'Ctrl', 'Win', 'Alt', 'Space', 'Alt', 'FN', 'Win', 'Ctrl'];
 
-const button = document.createElement('li');
-button.id = 'button';
-button.classList.add('button');
-button.innerText = '`';
+window.onload = function init() {
+  const rows = [];
+  const inputPlace = document.createElement('textarea');
+  const keyboardPlace = document.createElement('div');
+  inputPlace.className = 'input';
+  keyboardPlace.className = 'keyboard';
+  document.body.append(inputPlace, keyboardPlace);
 
-inputArea.append(button);
+  for (let i = 0; i < 5; i++) {
+    const row = document.createElement('div');
+    row.className = `row${i}`;
+    rows.push(row);
+  }
 
-const buttonID = document.getElementById('button');
-const button_1 = buttonID.cloneNode(true);
-button_1.innerText = '1';
-const button_2 = buttonID.cloneNode(true);
-button_2.innerText = '2';
-const button_3 = buttonID.cloneNode(true);
-button_3.innerText = '3';
-const button_4 = buttonID.cloneNode(true);
-button_4.innerText = '4';
-const button_5 = buttonID.cloneNode(true);
-button_5.innerText = '5';
-const button_6 = buttonID.cloneNode(true);
-button_6.innerText = '6';
-const button_7 = buttonID.cloneNode(true);
-button_7.innerText = '7';
-const button_8 = buttonID.cloneNode(true);
-button_8.innerText = '8';
-const button_9 = buttonID.cloneNode(true);
-button_9.innerText = '9';
-const button_0 = buttonID.cloneNode(true);
-button_0.innerText = '0';
-const button_ = buttonID.cloneNode(true);
-button_.innerText = '-';
-const button_plus = buttonID.cloneNode(true);
-button_plus.innerText = '=';
-const buttonBackspace = buttonID.cloneNode(true);
-buttonBackspace.innerText = 'Backspace';
+  for (let i = 0; i < russianKeys.length; i++) {
+    const button = document.createElement('div');
+    button.textContent = russianKeys[i];
+    button.className = 'key';
+    if (i < 14) {
+      rows[0].append(button);
+    } else if (i < 28) {
+      rows[1].append(button);
+    } else if (i < 41) {
+      rows[2].appendChild(button);
+    } else if (i < 53) {
+      rows[3].appendChild(button);
+    } else {
+      rows[4].append(button);
+    }
+  }
 
-inputArea.append(
-  button_1, button_2, button_3, button_4, button_5, button_6,
-  button_7, button_8, button_9, button_0, button_, button_plus
-  , buttonBackspace,
-);
+
+  keyboardPlace.append(rows[0], rows[1], rows[2], rows[3], rows[4]);
+
+};

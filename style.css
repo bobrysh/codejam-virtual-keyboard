@@ -1,30 +1,31 @@
-#area{
-    margin: auto;
+body {
     display: flex;
-    width: 906px;
-    height: 227px;
-    font-size: 2em;
-}
-
-#inputArea{
-    display: flex;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+.input {
     width: 900px;
-    height: 320px;
-    flex-direction: row;
-    flex-wrap: wrap;
+    height: 300px;
 }
-
-#button{
-    width: 5%;
-    display: block;
-    height: 50px;
-    margin-right: 1%;
-    margin-left: 0%;
-    color: white;
-    border-radius: 50%;
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 2px 5px 0px;
-    cursor: pointer;
+.keyboard {
+    width: 700px;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: antiquewhite;
+}
+.row0, .row1, .row2, .row3, .row4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 45px;
+    margin-bottom: 8px;
+  }
+.key {
     text-align: center;
+    width: 45px;
+    height: 45px;
+    color: white;
     background-color: black;
+    cursor: pointer;
+    border-radius: 5px;
 }
