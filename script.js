@@ -11,8 +11,10 @@ const englishKeys = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift',
   'Ctrl', 'Win', 'Alt', 'Space', 'Alt', 'FN', 'Win', 'Ctrl'];
 
+  const planet = "&#127760";
+
 window.onload = function init() {
-  let currentLanguage = 'rus'
+  let currentLanguage = 'rus';
   const rows = [];
   const inputPlace = document.createElement('textarea');
   const keyboardPlace = document.createElement('div');
@@ -29,6 +31,12 @@ window.onload = function init() {
   for (let i = 0; i < russianKeys.length; i++) {
     const button = document.createElement('div');
     button.textContent = russianKeys[i];
+    if (button.textContent === 'Backspace') button.className = 'keyboard__backspace'
+    else if (button.textContent === 'Tab') button.className = 'keyboard__tab'
+    else if (button.textContent === 'Caps Lock') button.className = 'keyboard__caps-lock'
+    else if (button.textContent === 'Enter') button.className = 'keyboard__enter'
+    else if (button.textContent === 'Shift') button.className = 'keyboard__shift'
+    else if (button.textContent === 'Space') button.className = 'keyboard__space'
     button.className = 'key';
     if (i < 14) {
       rows[0].append(button);
@@ -62,8 +70,9 @@ window.onload = function init() {
 
   function texting() {
     keyboardPlace.addEventListener('click', () => {
-      inputPlace.value += event.target.textContent;
-      if (event.target.textContent == 'FN') {
+      if (event.target.textContent == 'Backspace') inputPlace.value;
+      else if (event.target.textContent == 'Space') inputPlace.value += ' ';
+      else if (event.target.textContent == 'FN') {
         if (currentLanguage == 'rus') {
           changeLanguage('en');
           currentLanguage = 'en';
@@ -72,6 +81,12 @@ window.onload = function init() {
           currentLanguage = 'rus';
         }
       }
+      else if (event.target.className !== 'key' || event.target.textContent == 'Ctrl' || event.target.textContent == 'Win' || event.target.textContent == 'Alt' || event.target.textContent == 'FN') return;
+      else inputPlace.value += event.target.textContent;
+
+      // if (event.target.textContent == 'FN') {
+
+      // }
     });
   }
 
